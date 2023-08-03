@@ -1,0 +1,6 @@
+.vs
+cache/
+*.log
+*/bin/
+*/obj/
+*/deploy/

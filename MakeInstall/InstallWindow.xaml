@@ -1,0 +1,63 @@
+﻿<local:MakerWindow x:Class="MakeInstall.InstallWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MakeInstall"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResizeWithGrip"
+        Title="InstallWindow" Height="500" Width="600" Icon="bitbug_favicon.ico">
+    <Grid Margin="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <CheckBox x:Name="fixInStartScreen" IsChecked="True" >固定在开始屏幕</CheckBox>
+            <CheckBox x:Name="createLinkOnDesktop" IsChecked="True"> 创建桌面快捷方式</CheckBox>
+            <TextBlock>安装路径:</TextBlock>
+            <Grid  Margin="0,6,0,0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="installPathText"  FontSize="16" ></TextBox>
+                <Button  x:Name="selectInstallPath" 
+                         Style="{DynamicResource btn-success}" 
+                         Click="selectInstallPath_Click"
+                         Grid.Column="1"  
+                         Margin="6,0,0,0"
+                         Padding="4"
+                         HorizontalAlignment="Right">
+                    浏览</Button>
+            </Grid>
+        </StackPanel>
+        <RichTextBox Grid.Row="1" 
+                     x:Name="logTextBox"
+                     IsReadOnly="True"
+                     Margin="0,6"
+                     VerticalScrollBarVisibility="Visible"
+                     FontSize="10" >
+            <RichTextBox.Resources>
+                <Style TargetType="{x:Type Paragraph}">
+                    <Setter Property="Margin" Value="2"/>
+                </Style>
+            </RichTextBox.Resources>
+        </RichTextBox>
+        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Grid.Row="2">
+            <Button x:Name="cancelBtn"
+                    Margin="6,0"
+                    Click="cancelBtn_Click">取消</Button>
+            <Button x:Name="installBtn"
+                    Margin="6,0"
+                    Click="installBtn_Click"
+                    Style="{DynamicResource btn-primary}">安装</Button>
+        </StackPanel>
+    </Grid>
+</local:MakerWindow>

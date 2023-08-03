@@ -1,0 +1,19 @@
+﻿<Window x:Class="MakeInstall.Dialogs.HelpDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MakeInstall.Dialogs"
+        mc:Ignorable="d"        
+        ResizeMode="CanResizeWithGrip"
+        Title="打包配置示例" Height="300" Width="560" WindowStartupLocation="CenterOwner" Icon="/MakeInstall;component/bitbug_favicon.ico">
+    <Grid>
+        <RichTextBox xml:space="preserve"  x:Name="exampleBox" IsReadOnly="True"  Margin="12">
+             <RichTextBox.Resources>
+                <Style TargetType="{x:Type Paragraph}">
+                    <Setter Property="Margin" Value="6"/>
+                </Style>
+            </RichTextBox.Resources>
+        </RichTextBox>
+    </Grid>
+</Window>

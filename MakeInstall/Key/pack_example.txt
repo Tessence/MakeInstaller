@@ -1,0 +1,35 @@
+{
+	"Name": "example",
+	"Start": "example.exe",
+	"Source": "path/to/contain/example/",
+	"Filter": [ ".exe", ".dll" ],
+	"DesktopIcon": true,
+	"StartScreen": true,
+	"InstallFolder": "C:\\Program Files",
+	"OverrideExists": true,
+	"Output": "example-installer.exe",
+	"Uninstaller":"uninstaller.exe",
+	"RegValues": [
+		{
+			"Type": "HKEY_LOCAL_MACHINE",
+			"Path": "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall",
+			"Name": "simoou",
+			"Values": {
+				"DisplayIcon": "${install_path}\\simoou.exe",
+				"InstallLocation":"${install_path}",
+				"DisplayName": "simoou",
+				"DisplayVersion": "1.2.0",
+				"Publisher":"tqz",
+				"EstimatedSize":"${install_size}",
+				"UninstallString": "${install_path}\\${uninstaller_file}",
+				"NoModify":"1",
+				"NoRepair":"1",
+				"sEstimatedSize2":"${install_size}",
+				"VersionMajor":"1",
+				"VersionMinor":"2"
+			}
+		}
+	],
+	"AfterInstall":"",
+	"AfterRemove":""
+}

@@ -1,0 +1,64 @@
+﻿<local:MakerWindow x:Class="MakeInstall.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MakeInstall"
+        mc:Ignorable="d"
+        ResizeMode="CanResizeWithGrip"
+        Title="MakeInstaller" 
+        Height="540" 
+        Width="800" 
+        Loaded="Window_Loaded"
+        WindowStartupLocation="CenterScreen" 
+        DataContext="{Binding Mode=OneWay, RelativeSource={RelativeSource Self}}" Icon="bitbug_favicon.ico">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="36"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="1" Margin="0,4" >
+            <TextBlock x:Name="progressMessage" Foreground="#FF666666">processing</TextBlock>
+            <ProgressBar x:Name="packProgressBar" Style="{DynamicResource progress-bar}" Height="16" Value="0"></ProgressBar>
+        </StackPanel>
+
+        <Grid Grid.Row="0" Visibility="{Binding  IsBaker}" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="packConfigTextBox" IsEnabled="False" FontSize="16"   TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto" >
+                 
+            </TextBox>
+            <Button  x:Name="selectConfigButton" 
+                     Style="{DynamicResource btn-success}" 
+                     Click="selectConfigButton_Click"
+                     Grid.Column="1"  
+                     Margin="6,0,0,0"
+                     Padding="4"
+                     HorizontalAlignment="Right">
+            选择打包配置</Button>
+        </Grid>
+        <RichTextBox  x:Name="logTextBox" IsReadOnly="True" Grid.Row="2" VerticalScrollBarVisibility="Visible"   FontSize="10" >
+            <RichTextBox.Resources>
+                <Style TargetType="{x:Type Paragraph}">
+                    <Setter Property="Margin" Value="2"/>
+                </Style>
+            </RichTextBox.Resources>
+        </RichTextBox>
+        <Grid Grid.Row="3" >
+            <StackPanel Visibility="{Binding  IsBaker}" VerticalAlignment="Bottom" Orientation="Horizontal">                
+                <TextBlock x:Name="exampleInfo"  MouseUp="exampleInfo_MouseUp" TextDecorations="Underline" Cursor="Hand" Foreground="#FF4B79BB" > Example</TextBlock>
+                <TextBlock x:Name="licenceInfo" MouseUp="licenceInfo_MouseUp" TextDecorations="Underline" Cursor="Hand" Foreground="#FF4B79BB" Margin="12,0" > License</TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                <Button x:Name="exploreButton" Click="exploreButton_Click" Width="120" HorizontalAlignment="Right" Margin="8,0">打开文件夹</Button>
+                <Button x:Name="startButton" Click="startButton_Click" Width="120" HorizontalAlignment="Right"> 开始 </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</local:MakerWindow>
